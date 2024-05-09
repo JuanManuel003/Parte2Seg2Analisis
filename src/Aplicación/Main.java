@@ -15,6 +15,8 @@ public class Main {
 		int opcion = 0;
 		int[] arreglo1 = null, arreglo2 = null;
 		Americano algoritmosAmericanos = new Americano();
+		long startTimeNano, endTimeNano, elapsedTimeNano;
+
 
 		try {
 			//caso 1
@@ -22,7 +24,6 @@ public class Main {
 			arreglo1 = cargarArray1.getArray();
 			Persistencia cargarArray2 = Persistencia.fromXML("array2.xml");
 			arreglo2 = cargarArray2.getArray();
-
 
 			ArrayList<Integer> array1;
 
@@ -51,7 +52,7 @@ public class Main {
 			switch (opcion) {
 			case 1:
 				algoritmosAmericanos.ResultadoAmericanoIterativo(arreglo1, arreglo2);
-				break;
+		        break;
 
 			case 2:
 				algoritmosAmericanos.ResultadoAmericanoRecursivo(arreglo1, arreglo2);
@@ -76,6 +77,13 @@ public class Main {
 
 
 	}
+
+	static long medirTiempo(Runnable metodo) {
+        long inicio = System.nanoTime();
+        metodo.run();
+        long fin = System.nanoTime();
+        return fin - inicio;
+    }
 
 	public static int[] americano(int arreglo1[], int arreglo2[]) {
 

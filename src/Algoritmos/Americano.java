@@ -1,11 +1,19 @@
 package Algoritmos;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import javax.xml.bind.JAXBException;
+
+import Aplicación.Persistencia;
 
 public class Americano {
 
 	private long startTimeNano, endTimeNano, elapsedTimeNano;
+	private  ArrayList<Long> tiempos = new ArrayList<Long>();
+
+	Persistencia TEXML = new Persistencia(tiempos);
 
 	// ----------------------------------------------------Resultados--------------------------------------------------
 
@@ -19,6 +27,17 @@ public class Americano {
         System.out.println("Tiempo que tarda el algoritmo Americano iterativo ordenar el arreglo es: "+elapsedTimeNano+" nanosegundos");
 
 		imprimirArreglo(resultado);
+		tiempos.add(elapsedTimeNano);
+
+		try {
+			TEXML.toXML("tiempos.xml");
+			Persistencia newArray = Persistencia.fromXML("tiempos.xml");
+			 ArrayList<Long> loadedArray = newArray.getTiempos();
+            System.out.println(loadedArray);
+		} catch (JAXBException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void ResultadoAmericanoRecursivo(int[] arreglo1, int[] arreglo2) {
@@ -32,6 +51,17 @@ public class Americano {
         System.out.println("Tiempo que tarda el algoritmo Americano iterativo ordenar el arreglo es: "+elapsedTimeNano+" nanosegundos");
 
 		imprimirArreglo(resultado);
+		tiempos.add(elapsedTimeNano);
+
+		try {
+			TEXML.toXML("tiempos.xml");
+			Persistencia newArray = Persistencia.fromXML("tiempos.xml");
+			 ArrayList<Long> loadedArray = newArray.getTiempos();
+            System.out.println(loadedArray);
+		} catch (JAXBException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void ResultadoAmericanoIterativoDinamico(int[] arreglo1, int[] arreglo2) {
@@ -39,8 +69,24 @@ public class Americano {
 		// Esta linea se hace para llenar el arraylist con 0's de acuerdo al
 		// tamaño
 		resultado = llenarArray(resultado, arreglo1.length + arreglo2.length);
+		startTimeNano = System.nanoTime();
 		resultado = AmericanoIterativoDinamico(arreglo1, arreglo2, resultado);
+		endTimeNano=System.nanoTime();
+		elapsedTimeNano = endTimeNano - startTimeNano;
+        System.out.println("Tiempo que tarda el algoritmo Americano iterativo ordenar el arreglo es: "+elapsedTimeNano+" nanosegundos");
 		imprimirArray(resultado);
+
+		tiempos.add(elapsedTimeNano);
+
+		try {
+			TEXML.toXML("tiempos.xml");
+			Persistencia newArray = Persistencia.fromXML("tiempos.xml");
+			 ArrayList<Long> loadedArray = newArray.getTiempos();
+            System.out.println(loadedArray);
+		} catch (JAXBException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void ResultadoAmericanoRecursivoDinamico(int[] arreglo1, int[] arreglo2) {
@@ -48,8 +94,24 @@ public class Americano {
 		int j = arreglo2.length;
 		int tamañoResultado = i+j;
 	    ArrayList<Integer> resultado = new ArrayList<>(Collections.nCopies(tamañoResultado, 0));
+		startTimeNano = System.nanoTime();
 		resultado = AmericanoRecursivoDinamico(arreglo1, arreglo2, resultado, i, j, 0);
+		endTimeNano=System.nanoTime();
+		elapsedTimeNano = endTimeNano - startTimeNano;
+        System.out.println("Tiempo que tarda el algoritmo Americano iterativo ordenar el arreglo es: "+elapsedTimeNano+" nanosegundos");
+
 		imprimirArray(resultado);
+		tiempos.add(elapsedTimeNano);
+
+		try {
+			TEXML.toXML("tiempos.xml");
+			Persistencia newArray = Persistencia.fromXML("tiempos.xml");
+			 ArrayList<Long> loadedArray = newArray.getTiempos();
+            System.out.println(loadedArray);
+		} catch (JAXBException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	// ----------------------------------------------------Algoritmos--------------------------------------------------
@@ -242,4 +304,10 @@ public class Americano {
 		return arreglo;
 	}
 
+	static long medirTiempo(Runnable metodo) {
+        long inicio = System.nanoTime();
+        metodo.run();
+        long fin = System.nanoTime();
+        return fin - inicio;
+    }
 }

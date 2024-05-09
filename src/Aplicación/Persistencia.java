@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.xml.bind.JAXBContext;
@@ -19,6 +20,7 @@ public class Persistencia {
 	private static final Persistencia PersistentArray = null;
 
 	private int[] array;
+    private ArrayList<Long> tiempos;
 
     // Constructor vacío requerido por JAXB
     public Persistencia() {}
@@ -27,12 +29,24 @@ public class Persistencia {
         this.array = array;
     }
 
+    public Persistencia( ArrayList<Long> tiempos) {
+        this.tiempos = tiempos;
+    }
+
     public int[] getArray() {
         return array;
     }
 
     public void setArray(int[] array) {
         this.array = array;
+    }
+
+    public  ArrayList<Long> getTiempos() {
+        return tiempos;
+    }
+
+    public void setTiempos( ArrayList<Long> tiempos) {
+        this.tiempos = tiempos;
     }
 
     // Método para serializar el objeto a XML
