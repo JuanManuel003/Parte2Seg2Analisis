@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <persistencia>
-    <tiempos>379500</tiempos>
-    <tiempos>1112000</tiempos>
-    <tiempos>1484900</tiempos>
-    <tiempos>2203000</tiempos>
+    <tiempos>
+        <entry>
+            <key>Americano Iterativo</key>
+            <value>610200</value>
+        </entry>
+        <entry>
+            <key>Americano Recursivo</key>
+            <value>2771900</value>
+        </entry>
+        <entry>
+            <key>Americano Iterativo Dinamico</key>
+            <value>2871500</value>
+        </entry>
+        <entry>
+            <key>Americano recursivo Dinamico</key>
+            <value>3148500</value>
+        </entry>
+    </tiempos>
 </persistencia>

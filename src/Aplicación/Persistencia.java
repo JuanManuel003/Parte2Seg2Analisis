@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 import javax.xml.bind.JAXBContext;
@@ -14,13 +15,15 @@ import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.sun.javafx.collections.MappingChange.Map;
+
 @XmlRootElement
 public class Persistencia {
 
 	private static final Persistencia PersistentArray = null;
 
 	private int[] array;
-    private ArrayList<Long> tiempos;
+    private HashMap<String, Long> tiempos;
 
     // Constructor vacío requerido por JAXB
     public Persistencia() {}
@@ -29,7 +32,7 @@ public class Persistencia {
         this.array = array;
     }
 
-    public Persistencia( ArrayList<Long> tiempos) {
+    public Persistencia( HashMap<String, Long> tiempos) {
         this.tiempos = tiempos;
     }
 
@@ -41,11 +44,11 @@ public class Persistencia {
         this.array = array;
     }
 
-    public  ArrayList<Long> getTiempos() {
+    public  HashMap<String, Long> getTiempos() {
         return tiempos;
     }
 
-    public void setTiempos( ArrayList<Long> tiempos) {
+    public void setTiempos( HashMap<String, Long> tiempos) {
         this.tiempos = tiempos;
     }
 
