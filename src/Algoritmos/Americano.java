@@ -30,8 +30,8 @@ public class Americano {
 		tiempos.add(elapsedTimeNano);
 
 		try {
-			TEXML.toXML("tiempos.xml");
-			Persistencia newArray = Persistencia.fromXML("tiempos.xml");
+			TEXML.toXML("Tiempos de ejecución/tiempos.xml");
+			Persistencia newArray = Persistencia.fromXML("Tiempos de ejecución/tiempos.xml");
 			 ArrayList<Long> loadedArray = newArray.getTiempos();
             System.out.println(loadedArray);
 		} catch (JAXBException | IOException e) {
@@ -48,14 +48,14 @@ public class Americano {
 		int[] resultado = americanoRecursivo(arreglo1, arreglo2, arreglo3, tamArr1, tamArr2, 0);
 		endTimeNano=System.nanoTime();
 		elapsedTimeNano = endTimeNano - startTimeNano;
-        System.out.println("Tiempo que tarda el algoritmo Americano iterativo ordenar el arreglo es: "+elapsedTimeNano+" nanosegundos");
+        System.out.println("Tiempo que tarda el algoritmo Americano recursivo ordenar el arreglo es: "+elapsedTimeNano+" nanosegundos");
 
 		imprimirArreglo(resultado);
 		tiempos.add(elapsedTimeNano);
 
 		try {
-			TEXML.toXML("tiempos.xml");
-			Persistencia newArray = Persistencia.fromXML("tiempos.xml");
+			TEXML.toXML("Tiempos de ejecución/tiempos.xml");
+			Persistencia newArray = Persistencia.fromXML("Tiempos de ejecución/tiempos.xml");
 			 ArrayList<Long> loadedArray = newArray.getTiempos();
             System.out.println(loadedArray);
 		} catch (JAXBException | IOException e) {
@@ -73,14 +73,14 @@ public class Americano {
 		resultado = AmericanoIterativoDinamico(arreglo1, arreglo2, resultado);
 		endTimeNano=System.nanoTime();
 		elapsedTimeNano = endTimeNano - startTimeNano;
-        System.out.println("Tiempo que tarda el algoritmo Americano iterativo ordenar el arreglo es: "+elapsedTimeNano+" nanosegundos");
+        System.out.println("Tiempo que tarda el algoritmo Americano iterativo dinamico ordenar el arreglo es: "+elapsedTimeNano+" nanosegundos");
 		imprimirArray(resultado);
 
 		tiempos.add(elapsedTimeNano);
 
 		try {
-			TEXML.toXML("tiempos.xml");
-			Persistencia newArray = Persistencia.fromXML("tiempos.xml");
+			TEXML.toXML("Tiempos de ejecución/tiempos.xml");
+			Persistencia newArray = Persistencia.fromXML("Tiempos de ejecución/tiempos.xml");
 			 ArrayList<Long> loadedArray = newArray.getTiempos();
             System.out.println(loadedArray);
 		} catch (JAXBException | IOException e) {
@@ -98,14 +98,14 @@ public class Americano {
 		resultado = AmericanoRecursivoDinamico(arreglo1, arreglo2, resultado, i, j, 0);
 		endTimeNano=System.nanoTime();
 		elapsedTimeNano = endTimeNano - startTimeNano;
-        System.out.println("Tiempo que tarda el algoritmo Americano iterativo ordenar el arreglo es: "+elapsedTimeNano+" nanosegundos");
+        System.out.println("Tiempo que tarda el algoritmo Americano recursivo dinamico ordenar el arreglo es: "+elapsedTimeNano+" nanosegundos");
 
 		imprimirArray(resultado);
 		tiempos.add(elapsedTimeNano);
 
 		try {
-			TEXML.toXML("tiempos.xml");
-			Persistencia newArray = Persistencia.fromXML("tiempos.xml");
+			TEXML.toXML("Tiempos de ejecución/tiempos.xml");
+			Persistencia newArray = Persistencia.fromXML("Tiempos de ejecución/tiempos.xml");
 			 ArrayList<Long> loadedArray = newArray.getTiempos();
             System.out.println(loadedArray);
 		} catch (JAXBException | IOException e) {

@@ -19,10 +19,22 @@ public class Main {
 
 
 		try {
-			//caso 1
-			Persistencia cargarArray1 = Persistencia.fromXML("array1.xml");
+			//Caso 1
+			/*Persistencia cargarArray1 = Persistencia.fromXML("Casos de prueba/CasoPrueba1Arreglo1.xml");
 			arreglo1 = cargarArray1.getArray();
-			Persistencia cargarArray2 = Persistencia.fromXML("array2.xml");
+			Persistencia cargarArray2 = Persistencia.fromXML("Casos de prueba/CasoPrueba1Arreglo2.xml");
+			arreglo2 = cargarArray2.getArray();*/
+
+			//Caso 2
+			/*Persistencia cargarArray1 = Persistencia.fromXML("Casos de prueba/CasoPrueba2Arreglo1.xml");
+			arreglo1 = cargarArray1.getArray();
+			Persistencia cargarArray2 = Persistencia.fromXML("Casos de prueba/CasoPrueba2Arreglo2.xml");
+			arreglo2 = cargarArray2.getArray();*/
+
+			//Caso 3
+			Persistencia cargarArray1 = Persistencia.fromXML("Casos de prueba/CasoPrueba3Arreglo1.xml");
+			arreglo1 = cargarArray1.getArray();
+			Persistencia cargarArray2 = Persistencia.fromXML("Casos de prueba/CasoPrueba3Arreglo2.xml");
 			arreglo2 = cargarArray2.getArray();
 
 			ArrayList<Integer> array1;

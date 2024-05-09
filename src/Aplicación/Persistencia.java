@@ -65,16 +65,16 @@ public class Persistencia {
     }
 
     public static void main(String[] args) {
-        int[] Array1 = generarArreglo(10);
-        //int[] Array2 = generarArreglo(10);
+        int[] Array1 = generarArreglo(35);
+        int[] Array2 = generarArreglo(35);
 
         try {
             // Serializar el arreglo a XML
-            Persistencia persistentArray = new Persistencia(Array1);
-            persistentArray.toXML("array1.xml");
+            Persistencia persistentArray = new Persistencia(Array2);
+            persistentArray.toXML("Casos de prueba/CasoPrueba2Arreglo2.xml");
 
             // Deserializar el XML de vuelta al arreglo
-            Persistencia newArray = Persistencia.fromXML("array1.xml");
+            Persistencia newArray = Persistencia.fromXML("Casos de prueba/CasoPrueba2Arreglo2.xml");
             int[] loadedArray = newArray.getArray();
             for (int element : loadedArray) {
                 System.out.println(element);
@@ -84,13 +84,13 @@ public class Persistencia {
         }
     }
 
-    public static int[] generarArreglo(int tam){
-    	int[] arreglo = new int[tam];
-    	Random aleatorio = new Random();
-    	for(int i=0; i<tam; i++){
-    		arreglo[i] = aleatorio.nextInt(10);
-    	}
-    	return arreglo;
+    public static int[] generarArreglo(int tam) {
+        int[] arreglo = new int[tam];
+        Random aleatorio = new Random();
+        for (int i = 0; i < tam; i++) {
+            arreglo[i] = aleatorio.nextInt(9) + 1; // Genera números aleatorios en el rango [1, 9]
+        }
+        return arreglo;
     }
 
 
