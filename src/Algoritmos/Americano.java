@@ -119,48 +119,17 @@ public class Americano {
 	// ----------------------------------------------------Algoritmos--------------------------------------------------
 
 	public int[] AmericanoIterativo(int[] arreglo1, int[] arreglo2) {
-		int resultado[] = new int[arreglo1.length + arreglo2.length]; // Aqui
-																		// declaramos
-																		// y
-																		// asignamos
-																		// el
-																		// tamaño
-																		// al
-																		// arreglo
-																		// que
-																		// nos
-																		// da el
-																		// resultado
-																		// de la
-																		// multiplicación
-		int acarreo = 0; // Esta variable es el acarreo
-		int result;
-		int mult;
+		int resultado[] = new int[arreglo1.length + arreglo2.length];
+		for (int i = arreglo2.length - 1; i >= 0; i--) {
 
-		// Este arreglo se recorre de manera tal que su primer numero sea el de
-		// la izquierda
-		for (int i = arreglo1.length; i > 0; i--) {
-			// Este arreglo se recorre de manera tal que su primer numero sea el
-			// de la izquierda
-			for (int j = arreglo2.length; j > 0; j--) {
-				// Aqui asignamos la multiplicacion de los dos valores de la
-				// posición
-				mult = arreglo1[i - 1] * arreglo2[j - 1];
-				// Aqui sumamos el resultado en la posicion indicada, el
-				// resultado de multiplicacion y el acarreo en caso de que haya
-				result = mult + resultado[i + j - 1] + acarreo;
-				// Aqui separamos el primer digito
-				resultado[i + j - 1] = result % 10;
-				// Aqui separamos el segundo digito en caso de que haya
-				acarreo = result / 10;
-				// Este condicional se utiliza en caso de que un numero tenga
-				// acarreo y ya haya llegado a su fin, con el fin de tenerlo en
-				// cuenta
-				if (j == 1 && acarreo != 0) {
-					resultado[i + j - 2] = acarreo;
-					acarreo = 0;
-				}
+			for (int j = arreglo1.length - 1; j >= 0; j--) {
+
+				resultado[i + j + 1] += arreglo1[j] * arreglo2[i];
+				resultado[i + j] += (resultado[i + j + 1] / 10);
+				resultado[i + j + 1] %= 10;
+
 			}
+
 		}
 		return resultado;
 	}
@@ -169,35 +138,21 @@ public class Americano {
 
 		int result;
 		int mult;
-		// Caso base que devuelve el resultado de las recursiones
 		if (i <= 0) {
 			return resultado;
 		}
-		// Condicional para iterar recursivamente los arreglos
 		if (j > 0) {
-			// Aqui asignamos la multiplicacion de los dos valores de la
-			// posición
 			mult = arreglo1[i - 1] * arreglo2[j - 1];
-			// Aqui sumamos el resultado en la posicion indicada, el resultado
-			// de multiplicacion y el acarreo en caso de que haya
 			result = mult + resultado[i + j - 1] + acarreo;
-			// Aqui separamos el primer digito
 			resultado[i + j - 1] = result % 10;
-			// Aqui separamos el segundo digito en caso de que haya
 			acarreo = result / 10;
-			// Este condicional se utiliza en caso de que un numero tenga
-			// acarreo y ya haya llegado a su fin, con el fin de tenerlo en
-			// cuenta
 			if (j == 1 && acarreo != 0) {
 				resultado[i + j - 2] = acarreo;
 				acarreo = 0;
 			}
-			// se llama recursivamente el metodo disminuyendo la j
 			return americanoRecursivo(arreglo1, arreglo2, resultado, i, --j, acarreo);
 
 		} else {
-			// Se llama recursivamente el metodo disminuyendo la i y
-			// restableciendo el tamaño de j
 			return americanoRecursivo(arreglo1, arreglo2, resultado, --i, arreglo2.length, acarreo);
 		}
 	}
@@ -205,30 +160,16 @@ public class Americano {
 	public ArrayList<Integer> AmericanoIterativoDinamico(int[] arreglo1, int[] arreglo2,
 			ArrayList<Integer> resultado) {
 
-		// En esta variable se guarda el acarreo en caso de que haya
 		int acarreo = 0;
 		int result;
 		int mult;
 
-		// Este ciclo se recorre de derecha a izquierda para simular el metodo
-		// de multiplicacion americana
 		for (int i = arreglo1.length; i > 0; i--) {
-			// Este ciclo se recorre de derecha a izquierda para simular el
-			// metodo de multiplicacion americana
 			for (int j = arreglo2.length; j > 0; j--) {
-				// Aqui asignamos la multiplicacion de los dos valores de la
-				// posición
 				mult = arreglo1[i - 1] * arreglo2[j - 1];
-				// Aqui sumamos el resultado en la posicion indicada, el
-				// resultado de multiplicacion y el acarreo en caso de que haya
 				result = mult + resultado.get(i + j - 1) + acarreo;
-				// Aqui separamos el primer digito
 				resultado.set(i + j - 1, result % 10);
-				// Aqui separamos el segundo digito en caso de que haya
 				acarreo = result / 10;
-				// Este condicional se utiliza en caso de que un numero tenga
-				// acarreo y ya haya llegado a su fin, con el fin de tenerlo en
-				// cuenta
 				if (j == 1 && acarreo != 0) {
 					resultado.set(i + j - 2, acarreo);
 					acarreo = 0;
@@ -244,37 +185,23 @@ public class Americano {
 		int result;
 		int mult;
 
-		// Caso base que devuelve el resultado de las recursiones
 		if (i <= 0) {
 			return resultado;
 		}
 
-		// Condicional para iterar recursivamente los arreglos
 		if (j > 0) {
-			// Aquí asignamos la multiplicación de los dos valores de la
-			// posición
 			mult = arreglo1[i - 1] * arreglo2[j - 1];
-			// Aquí sumamos el resultado en la posición indicada, el resultado
-			// de multiplicación y el acarreo en caso de que haya
 			result = mult + resultado.get(i + j - 1) + acarreo;
-			// Aquí separamos el primer dígito
 			resultado.set(i + j - 1, result % 10);
-			// Aquí separamos el segundo dígito en caso de que haya
 			acarreo = result / 10;
 
-			// Este condicional se utiliza en caso de que un número tenga
-			// acarreo y ya haya llegado a su fin, con el fin de tenerlo en
-			// cuenta
 			if (j == 1 && acarreo != 0) {
 				resultado.add(i + j - 2, acarreo);
 				acarreo = 0;
 			}
 
-			// Se llama recursivamente el método disminuyendo la j
 			return AmericanoRecursivoDinamico(arreglo1, arreglo2, resultado, i, j - 1, acarreo);
 		} else {
-			// Se llama recursivamente el método disminuyendo la i y
-			// restableciendo el tamaño de j
 			return AmericanoRecursivoDinamico(arreglo1, arreglo2, resultado, i - 1, arreglo2.length, acarreo);
 		}
 	}
@@ -306,10 +233,4 @@ public class Americano {
 		return arreglo;
 	}
 
-	static long medirTiempo(Runnable metodo) {
-        long inicio = System.nanoTime();
-        metodo.run();
-        long fin = System.nanoTime();
-        return fin - inicio;
-    }
 }

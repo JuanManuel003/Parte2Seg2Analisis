@@ -77,41 +77,8 @@ public class Main {
 			case 4:
 				algoritmosAmericanos.ResultadoAmericanoRecursivoDinamico(arreglo1, arreglo2);
 				break;
-
-			case 6:
-				int[] resultado = americano(arreglo1, arreglo2);
-				System.out.println("El algoritmo del class");
-				algoritmosAmericanos.imprimirArreglo(resultado);
-				break;
-
 			}
 		}while(opcion!=5);
-
-
-	}
-
-	static long medirTiempo(Runnable metodo) {
-        long inicio = System.nanoTime();
-        metodo.run();
-        long fin = System.nanoTime();
-        return fin - inicio;
-    }
-
-	public static int[] americano(int arreglo1[], int arreglo2[]) {
-
-		int resultado[] = new int[arreglo1.length + arreglo2.length];
-		for (int i = arreglo2.length - 1; i >= 0; i--) {
-
-			for (int j = arreglo1.length - 1; j >= 0; j--) {
-
-				resultado[i + j + 1] += arreglo1[j] * arreglo2[i];
-				resultado[i + j] += (resultado[i + j + 1] / 10);
-				resultado[i + j + 1] %= 10;
-
-			}
-
-		}
-		return resultado;
 
 	}
 
