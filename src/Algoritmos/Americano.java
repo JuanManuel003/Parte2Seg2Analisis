@@ -20,7 +20,7 @@ public class Americano {
 
 	// ----------------------------------------------------Resultados--------------------------------------------------
 
-	public void ResultadoAmericanoIterativo(int[] arreglo1, int[] arreglo2) {
+	public void ResultadoAmericanoIterativo(int[] arreglo1, int[] arreglo2, String casoPrueba) {
 
         //calcular el tiempo que tarda el algoritmo en ordenar el arreglo
 		startTimeNano = System.nanoTime();
@@ -33,8 +33,8 @@ public class Americano {
 		tiempos.put("Americano Iterativo", elapsedTimeNano);
 
 		try {
-			TEXML.toXML("Tiempos de ejecución/tiempos.xml");
-			Persistencia newArray = Persistencia.fromXML("Tiempos de ejecución/tiempos.xml");
+			TEXML.toXML(casoPrueba);
+			Persistencia newArray = Persistencia.fromXML(casoPrueba);
 			 HashMap<String, Long> loadedArray = newArray.getTiempos();
             System.out.println(loadedArray);
 		} catch (JAXBException | IOException e) {
@@ -43,7 +43,7 @@ public class Americano {
 		}
 	}
 
-	public void ResultadoAmericanoRecursivo(int[] arreglo1, int[] arreglo2) {
+	public void ResultadoAmericanoRecursivo(int[] arreglo1, int[] arreglo2, String casoPrueba) {
 		int tamArr1 = arreglo1.length;
 		int tamArr2 = arreglo2.length;
 		int[] arreglo3 = new int[tamArr1 + tamArr2];
@@ -57,8 +57,8 @@ public class Americano {
 		tiempos.put("Americano Recursivo", elapsedTimeNano);
 
 		try {
-			TEXML.toXML("Tiempos de ejecución/tiempos.xml");
-			Persistencia newArray = Persistencia.fromXML("Tiempos de ejecución/tiempos.xml");
+			TEXML.toXML(casoPrueba);
+			Persistencia newArray = Persistencia.fromXML(casoPrueba);
 			 HashMap<String, Long> loadedArray = newArray.getTiempos();
             System.out.println(loadedArray);
 		} catch (JAXBException | IOException e) {
@@ -67,7 +67,7 @@ public class Americano {
 		}
 	}
 
-	public void ResultadoAmericanoIterativoDinamico(int[] arreglo1, int[] arreglo2) {
+	public void ResultadoAmericanoIterativoDinamico(int[] arreglo1, int[] arreglo2, String casoPrueba) {
 		ArrayList<Integer> resultado = new ArrayList<>();
 		// Esta linea se hace para llenar el arraylist con 0's de acuerdo al
 		// tamaño
@@ -81,8 +81,8 @@ public class Americano {
 		tiempos.put("Americano Iterativo Dinamico", elapsedTimeNano);
 
 		try {
-			TEXML.toXML("Tiempos de ejecución/tiempos.xml");
-			Persistencia newArray = Persistencia.fromXML("Tiempos de ejecución/tiempos.xml");
+			TEXML.toXML(casoPrueba);
+			Persistencia newArray = Persistencia.fromXML(casoPrueba);
 			 HashMap<String, Long> loadedArray = newArray.getTiempos();
             System.out.println(loadedArray);
 		} catch (JAXBException | IOException e) {
@@ -91,7 +91,7 @@ public class Americano {
 		}
 	}
 
-	public void ResultadoAmericanoRecursivoDinamico(int[] arreglo1, int[] arreglo2) {
+	public void ResultadoAmericanoRecursivoDinamico(int[] arreglo1, int[] arreglo2, String casoPrueba) {
 		int i = arreglo1.length;
 		int j = arreglo2.length;
 		int tamañoResultado = i+j;
@@ -106,8 +106,8 @@ public class Americano {
 		tiempos.put("Americano recursivo Dinamico", elapsedTimeNano);
 
 		try {
-			TEXML.toXML("Tiempos de ejecución/tiempos.xml");
-			Persistencia newArray = Persistencia.fromXML("Tiempos de ejecución/tiempos.xml");
+			TEXML.toXML(casoPrueba);
+			Persistencia newArray = Persistencia.fromXML(casoPrueba);
 			 HashMap<String, Long> loadedArray = newArray.getTiempos();
             System.out.println(loadedArray);
 		} catch (JAXBException | IOException e) {

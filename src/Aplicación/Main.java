@@ -14,8 +14,8 @@ public class Main {
 
 		int opcion = 0;
 		int[] arreglo1 = null, arreglo2 = null;
+		String caso = "";
 		Americano algoritmosAmericanos = new Americano();
-		long startTimeNano, endTimeNano, elapsedTimeNano;
 
 
 		try {
@@ -23,19 +23,22 @@ public class Main {
 			/*Persistencia cargarArray1 = Persistencia.fromXML("Casos de prueba/CasoPrueba1Arreglo1.xml");
 			arreglo1 = cargarArray1.getArray();
 			Persistencia cargarArray2 = Persistencia.fromXML("Casos de prueba/CasoPrueba1Arreglo2.xml");
-			arreglo2 = cargarArray2.getArray();*/
+			arreglo2 = cargarArray2.getArray();
+			caso = "Tiempos de ejecución/tiemposCaso1.xml";*/
 
 			//Caso 2
 			/*Persistencia cargarArray1 = Persistencia.fromXML("Casos de prueba/CasoPrueba2Arreglo1.xml");
 			arreglo1 = cargarArray1.getArray();
 			Persistencia cargarArray2 = Persistencia.fromXML("Casos de prueba/CasoPrueba2Arreglo2.xml");
-			arreglo2 = cargarArray2.getArray();*/
+			arreglo2 = cargarArray2.getArray();
+			caso = "Tiempos de ejecución/tiemposCaso2.xml";*/
 
 			//Caso 3
 			Persistencia cargarArray1 = Persistencia.fromXML("Casos de prueba/CasoPrueba3Arreglo1.xml");
 			arreglo1 = cargarArray1.getArray();
 			Persistencia cargarArray2 = Persistencia.fromXML("Casos de prueba/CasoPrueba3Arreglo2.xml");
 			arreglo2 = cargarArray2.getArray();
+			caso = "Tiempos de ejecución/tiemposCaso3.xml";
 
 			ArrayList<Integer> array1;
 
@@ -63,19 +66,19 @@ public class Main {
 
 			switch (opcion) {
 			case 1:
-				algoritmosAmericanos.ResultadoAmericanoIterativo(arreglo1, arreglo2);
+				algoritmosAmericanos.ResultadoAmericanoIterativo(arreglo1, arreglo2, caso);
 		        break;
 
 			case 2:
-				algoritmosAmericanos.ResultadoAmericanoRecursivo(arreglo1, arreglo2);
+				algoritmosAmericanos.ResultadoAmericanoRecursivo(arreglo1, arreglo2, caso);
 				break;
 
 			case 3:
-				algoritmosAmericanos.ResultadoAmericanoIterativoDinamico(arreglo1, arreglo2);
+				algoritmosAmericanos.ResultadoAmericanoIterativoDinamico(arreglo1, arreglo2, caso);
 				break;
 
 			case 4:
-				algoritmosAmericanos.ResultadoAmericanoRecursivoDinamico(arreglo1, arreglo2);
+				algoritmosAmericanos.ResultadoAmericanoRecursivoDinamico(arreglo1, arreglo2, caso);
 				break;
 			}
 		}while(opcion!=5);

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistencia>
+    <tiempos>
+        <entry>
+            <key>Americano Iterativo</key>
+            <value>141800</value>
+        </entry>
+        <entry>
+            <key>Americano Recursivo</key>
+            <value>1462200</value>
+        </entry>
+        <entry>
+            <key>Americano Iterativo Dinamico</key>
+            <value>988800</value>
+        </entry>
+        <entry>
+            <key>Americano recursivo Dinamico</key>
+            <value>672800</value>
+        </entry>
+    </tiempos>
+</persistencia>

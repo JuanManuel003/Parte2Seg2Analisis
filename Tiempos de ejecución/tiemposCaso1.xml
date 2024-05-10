@@ -3,19 +3,19 @@
     <tiempos>
         <entry>
             <key>Americano Iterativo</key>
-            <value>464700</value>
+            <value>201500</value>
         </entry>
         <entry>
             <key>Americano Recursivo</key>
-            <value>1086100</value>
+            <value>1585700</value>
         </entry>
         <entry>
             <key>Americano Iterativo Dinamico</key>
-            <value>1909100</value>
+            <value>1283300</value>
         </entry>
         <entry>
             <key>Americano recursivo Dinamico</key>
-            <value>2467700</value>
+            <value>1180100</value>
         </entry>
     </tiempos>
 </persistencia>
